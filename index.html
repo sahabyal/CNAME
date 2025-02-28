@@ -1,274 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VPLOY - Global Staffing Augmentation</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      overflow-x: hidden;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPLOY - Global Staffing Augmentation Solutions</title>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.0.6/tsparticles.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            cursor: none;
+        }
 
-    /* Particle Animation Background */
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      z-index: -1;
-    }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: #0a0e17;
+            z-index: -1;
+        }
 
-    /* Header */
-    header {
-      position: relative;
-      padding: 20px;
-      text-align: center;
-      color: white;
-    }
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #7c4dff;
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            mix-blend-mode: difference;
+        }
 
-    header h1 {
-      font-size: 3rem;
-      margin: 0;
-    }
+        .cursor-inner {
+            width: 8px;
+            height: 8px;
+            background: #7c4dff;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
 
-    header p {
-      font-size: 1.2rem;
-      margin: 10px 0;
-    }
+        header {
+            padding: 2rem;
+            position: relative;
+        }
 
-    header button {
-      padding: 10px 20px;
-      font-size: 1rem;
-      background: #ff6f61;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
+        .logo {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            animation: float 3s ease-in-out infinite;
+        }
 
-    /* V-shaped Logo */
-    .logo {
-      width: 100px;
-      height: 100px;
-      margin: 20px auto;
-    }
+        .logo-v {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 4px solid #7c4dff;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation: rotate 20s linear infinite;
+        }
 
-    .logo svg {
-      fill: #ff6f61;
-    }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            color: white;
+            position: relative;
+        }
 
-    /* Sections */
-    section {
-      padding: 50px 20px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      background: white;
-    }
+        .hero-content {
+            max-width: 800px;
+        }
 
-    section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
+        h1 {
+            font-size: 4rem;
+            background: linear-gradient(45deg, #7c4dff, #00bcd4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+        }
 
-    section p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
+        .cta-button {
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #7c4dff, #00bcd4);
+            border: none;
+            color: white;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
 
-    /* Services Grid */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
+        .services {
+            padding: 5rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
 
-    .service-card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 1rem;
+            transition: transform 0.3s ease;
+        }
 
-    /* Why Us List */
-    .why-us-list {
-      list-style: none;
-      padding: 0;
-      text-align: left;
-      max-width: 600px;
-      margin: 0 auto;
-    }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
 
-    .why-us-list li {
-      margin: 15px 0;
-      font-size: 1.1rem;
-    }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
 
-    /* Contact Form */
-    .contact-container {
-      display: flex;
-      justify-content: space-between;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .contact-info {
-      flex: 1;
-      text-align: left;
-    }
-
-    .contact-form {
-      flex: 1;
-      margin-left: 40px;
-    }
-
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .contact-form button {
-      padding: 10px 20px;
-      background: #ff6f61;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    /* Footer */
-    footer {
-      background: #1e3c72;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-  </style>
+        /* Add more styles for other sections */
+    </style>
 </head>
 <body>
-  <!-- Particle Animation -->
-  <div id="particles-js"></div>
+    <div class="cursor"></div>
+    <div class="cursor-inner"></div>
+    <div id="particles-js"></div>
 
-  <!-- Header -->
-  <header>
-    <div class="logo">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="50,10 90,90 10,90" />
-      </svg>
-    </div>
-    <h1>Unlock Global Talent with VPLOY</h1>
-    <p>Empowering businesses to achieve global success through seamless integration of top talent, wherever it resides.</p>
-    <button>Get Started</button>
-  </header>
-
-  <!-- About Us -->
-  <section id="about">
-    <h2>Who We Are</h2>
-    <p>VPLOY is a global staffing augmentation service provider specializing in the BPO segment. We connect businesses with pre-vetted professionals worldwide, offering cost-effective, flexible, and scalable talent solutions.</p>
-  </section>
-
-  <!-- Services -->
-  <section id="services">
-    <h2>Our Service Offerings</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>Temporary Staff Augmentation</h3>
-        <p>Quickly scale your team for short-term projects or seasonal demands.</p>
-      </div>
-      <div class="service-card">
-        <h3>Dedicated Team Building</h3>
-        <p>Build high-performing teams tailored to your business needs.</p>
-      </div>
-      <div class="service-card">
-        <h3>Ongoing Talent Acquisition</h3>
-        <p>Access a continuous pipeline of pre-vetted professionals for long-term roles.</p>
-      </div>
-      <div class="service-card">
-        <h3>BPO Solutions</h3>
-        <p>Specialized staffing for Business Process Outsourcing, including customer support, data entry, and back-office operations.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Us -->
-  <section id="why-us">
-    <h2>Why Choose VPLOY?</h2>
-    <ul class="why-us-list">
-      <li>Global Reach: Tap into a vast network of professionals across diverse industries and locations.</li>
-      <li>Cost-Effective: Save up to 65% on staffing costs compared to traditional agencies and in-house teams.</li>
-      <li>Scalable Solutions: Adjust your workforce as your business needs evolve.</li>
-      <li>Data Security: Industry-leading encryption and compliance with GDPR and CCPA.</li>
-      <li>Expert Management: Dedicated account managers to handle your talent needs.</li>
-    </ul>
-  </section>
-
-  <!-- Contact Us -->
-  <section id="contact" class="page">
-    <div class="contact-container">
-      <div class="contact-info">
-        <h2>Contact Information</h2>
-        <p>5100 Erin Mills Pkwy Suite I3<br>
-        Mississauga, ON L5M 4Z5<br>
-        Canada</p>
-        <p>Phone: 437-600-4300</p>
-      </div>
-
-      <form class="contact-form" action="https://formspree.io/f/myzkrznl" method="POST">
-        <div class="form-group">
-          <label>Your Name:
-            <input type="text" name="name" required>
-          </label>
+    <header>
+        <div class="logo">
+            <div class="logo-v"></div>
         </div>
-        
-        <div class="form-group">
-          <label>Your Email:
-            <input type="email" name="email" required>
-          </label>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Global Staffing Augmentation Solutions</h1>
+            <p>Access top global talent with 35-65% cost savings</p>
+            <button class="cta-button">Scale Your Team Now</button>
         </div>
-        
-        <div class="form-group">
-          <label>Your Message:
-            <textarea name="message" rows="5" required></textarea>
-          </label>
+    </section>
+
+    <section class="services">
+        <h2>Our Services</h2>
+        <div class="service-card">
+            <h3>Staff Augmentation</h3>
+            <p>Flexible workforce solutions with pre-vetted professionals</p>
         </div>
-        
-        <input type="hidden" name="_subject" value="New Contact Form Submission">
-        <button type="submit" class="submit-btn">Send Message</button>
-      </form>
-    </div>
-  </section>
+        <div class="service-card">
+            <h3>Dedicated Teams</h3>
+            <p>Build high-performing teams tailored to your needs</p>
+        </div>
+        <div class="service-card">
+            <h3>Project-Based Solutions</h3>
+            <p>End-to-end management for specific initiatives</p>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2023 VPLOY | info@vploy.com</p>
-  </footer>
+    <section class="why-us">
+        <h2>Why VPLOY?</h2>
+        <div class="benefit-card">
+            <h3>Global Talent Pool</h3>
+            <p>Access to 500k+ pre-vetted professionals worldwide</p>
+        </div>
+        <div class="benefit-card">
+            <h3>Cost Efficiency</h3>
+            <p>35-65% savings compared to traditional staffing</p>
+        </div>
+        <div class="benefit-card">
+            <h3>Data Security</h3>
+            <p>Enterprise-grade security with GDPR compliance</p>
+        </div>
+    </section>
 
-  <!-- Particle JS -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS.load('particles-js', 'particles.json', function() {
-      console.log('Particles.js loaded');
-    });
+    <script>
+        // Particles initialization
+        particlesJS.load('particles-js', 'particles.json', function() {
+            console.log('Particles loaded');
+        });
 
-    // Interactive Mouse Effects
-    document.addEventListener('mousemove', (e) => {
-      const particles = document.querySelectorAll('.particle');
-      particles.forEach(particle => {
-        const speed = particle.getAttribute('data-speed');
-        const x = (window.innerWidth - e.pageX * speed) / 100;
-        const y = (window.innerHeight - e.pageY * speed) / 100;
-        particle.style.transform = `translate(${x}px, ${y}px)`;
-      });
-    });
-  </script>
+        // Custom cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorInner = document.querySelector('.cursor-inner');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            cursorInner.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        });
+
+        // Hover effects
+        document.querySelectorAll('button, a, .service-card').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(1.5)';
+                cursor.style.opacity = '0.5';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursor.style.opacity = '1';
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+    <!-- Particles config -->
+    <script>
+        const particlesJSON = {
+            "particles": {
+                "number": {"value": 80},
+                "color": {"value": "#7c4dff"},
+                "shape": {"type": "circle"},
+                "opacity": {"value": 0.5},
+                "size": {"value": 3},
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "events": {
+                    "onhover": {"enable": true, "mode": "repulse"}
+                }
+            }
+        };
+    </script>
 </body>
 </html>
