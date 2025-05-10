@@ -22,11 +22,12 @@ Project:  Instant VA
 */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Jost:wght@400;500;600;700&family=Karla:wght@400;500;600&display=swap');
-@media (min-width: 686px) and (max-width: 999px) {
+@media (min-width: 744px) and (max-width: 999px) {
     /* body{
         background-color: red !important;
     } */
 .v-icon-banner{
+    display: none !important;
     max-width: 50% !important;
 }
 }
