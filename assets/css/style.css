@@ -343,7 +343,7 @@ p{
 /* Home Page About Us Section Style */
 
 .aboutus_section{
-    padding: 140px 0;
+    padding: 75px 0;
     position: relative;
 }
 .aboutus_section .images_wrapper{
@@ -411,7 +411,7 @@ p{
 /* Home Page Our Services Section Style */
 
 .services_section{
-    padding: 150px 0 105px;
+    padding: 75px 0 75px;
     background-image: url('../images/services_background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -593,7 +593,7 @@ p{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    padding: 100px 0 140px;
+    padding: 75px 0 75px;
     position: relative;
 }
 .virtual_employee-section .virtual_employee_image figure{
@@ -757,7 +757,7 @@ p{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    padding: 100px 0 140px;
+    padding: 75px 0 75px;
     position: relative;
 }
 .choose_us_content {
@@ -952,7 +952,7 @@ p{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    padding: 140px 0;
+    padding: 75px 0;
     position: relative;
 }
 .send_message_section .send_message_box_content {
@@ -1635,7 +1635,7 @@ textarea {
 /* Pricing Plan Page Our Process Section Style */
 
 .pricing_our_process_section{
-    padding: 140px 0;
+    padding: 75px 0;
 }
 
 /* Pricing Plan Page Pricing Plan Section Style */
@@ -2020,7 +2020,7 @@ textarea {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    padding: 140px 0;
+    padding: 75px 0;
     position: relative;
 }
 .expense_invoice-section .expense_invoice_image{
@@ -2095,7 +2095,7 @@ textarea {
 /* Services Page Scheduling & Planning Section Style */
 
 .schedule_plan-section {
-    padding: 140px 0;
+    padding: 75px 0;
 }
 .schedule_plan-section .schedule_plan_image{
     position: relative;
