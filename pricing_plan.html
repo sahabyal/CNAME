@@ -183,23 +183,23 @@ s0.parentNode.insertBefore(s1,s0);
         <!-- Essential Assist -->
         <div class="card" style="background: #fff; border-radius: 16px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
           <p style="font-size: 1.5rem; color: #5cc3ce" class="display-6">Essential Assist</p>
-          <p style="font-size: 1.2rem; font-weight: bold;">$399/Mo</p>
-          <br>
+          <p id="price1" style="font-size: 1.2rem; font-weight: bold;"></p>
+          
           <ul style="padding-left: 20px; line-height: 1.6;">
             <li>Basic virtual assistant services</li>
             <li>Up to 2 workflow tasks</li>
             <li>Shared resource</li>
             <li>Up to 40 hours/month</li>
           </ul>
-          <a  style="background-color: #ff9e41;" href="https://calendly.com/vploy-team/30min" class="btn-primary btn mt-2">Let's Talk</a>
+          <div id="price1-card" class="">
+            <p id="btn-price1" style="background-color: #ff9e41; cursor: pointer;" class="btn-primary btn form-control">Reveal Price</p>
+          </div>
         </div>
   
         <!-- Pro Efficiency -->
         <div class="card" style="background: #fff; border-radius: 16px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
           <p style="font-size: 1.5rem; color: #5cc3ce" class="display-6">Pro Efficiency</p>
-          <p style="font-size: 1.2rem; font-weight: bold;">$699/Mo
-            <br>
-          <small class="ms-1" style="text-decoration: line-through;">$899/Mo</small>
+          <p id="price2" style="font-size: 1.2rem; font-weight: bold;">
           </p>
           <ul style="padding-left: 20px; line-height: 1.6;">
             <li>
@@ -208,15 +208,15 @@ s0.parentNode.insertBefore(s1,s0);
             <li>Shared resource</li>
             <li>Up to 80 hours/month</li>
           </ul>
-          <a style="background-color: #ff9e41;" href="https://calendly.com/vploy-team/30min" class="btn-primary btn">Let's Talk</a>
+          <div id="price2-card" class="">
+            <p id="btn-price2" style="background-color: #ff9e41; cursor: pointer;" class="btn-primary btn form-control">Reveal Price</p>
+          </div>
         </div>
   
         <!-- Elite Support -->
         <div class="card" style="background: #fff; border-radius: 16px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
           <p style="font-size: 1.5rem; color: #5cc3ce" class="display-6"> Elite Support</p>
-          <p style="font-size: 1.2rem; font-weight: bold;">$1,299/Mo
-            <br>  
-          <small class="ms-1" style="text-decoration: line-through;">$1,4999/Mo</small>
+          <p id="price3" style="font-size: 1.2rem; font-weight: bold;">
           </p>
           <ul style="padding-left: 20px; line-height: 1.6;">
             <li>Advanced virtual assistant services</li>
@@ -224,24 +224,30 @@ s0.parentNode.insertBefore(s1,s0);
             <li>Dedicated resource</li>
             <li>160 hours/month</li>
           </ul>
-          <a style="background-color: #ff9e41;" href="https://calendly.com/vploy-team/30min" class="btn-primary btn">Let's Talk</a>
+          <div id="price3-card" class="">
+            <p id="btn-price3" style="background-color: #ff9e41; cursor: pointer;" class="btn-primary btn form-control">Reveal Price</p>
+          </div>
         </div>
   
         <!-- Expert Edge -->
         <div class="card" style="background: #fff; border-radius: 16px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
-          <p style="font-size: 1.5rem; color: #ff9e41" class="display-6">Expert Edge</p>
-          <p style="font-size: 1.2rem; font-weight: bold;">$1,699/Mo
-            <br>
-          <small class="ms-1" style="text-decoration: line-through;">$1,999/Mo</small>
-          </p>
-          <ul style="padding-left: 20px; line-height: 1.6;">
-            <li>High-level professional assistance</li>
-            <li>Industry-specific skills</li>
-            <li>Dedicated resource</li>
-            <li>160 hours/month</li>
-          </ul>
-          <a style="background-color: #ff9e41;" href="https://calendly.com/vploy-team/30min" class="btn-primary btn">Let's Talk</a>
-        </div>
+            <p style="font-size: 1.5rem; color: #ff9e41" class="display-6">Expert Edge</p>
+          
+            <p id="price4" style="font-size: 1.2rem; font-weight: bold;"></p>
+          
+            <ul style="padding-left: 20px; line-height: 1.6;">
+              <li>High-level professional assistance</li>
+              <li>Industry-specific skills</li>
+              <li>Dedicated resource</li>
+              <li>160 hours/month</li>
+            </ul>
+          
+            <!-- Wrapper around the button so we can replace it entirely -->
+            <div id="price4-card" class="">
+              <p id="btn-price4" style="background-color: #ff9e41; cursor: pointer;" class="btn-primary btn form-control">Reveal Price</p>
+            </div>
+          </div>
+          
       </div>
       <div class="row">
         <div class="col-md-12">
@@ -499,6 +505,150 @@ s0.parentNode.insertBefore(s1,s0);
         <figure class="mb-0"><img src="./assets/images/footer_logo.png" alt="" class="img-fluid"></figure>
     </div>
 </section>
+
+<div id="pricing-popup" class="bg-dark " style="z-index: 9999;display: none;position: fixed; top: 0; left: 0; height: 100vh; width: 100vw; opacity: 1;  justify-content: center; align-items: center;">
+
+    <div class="card" style="position: relative; background: #fff; border-radius: 16px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); max-width: 400px; width: 100%;">
+      
+      <!-- Close Button -->
+      <span onclick="document.getElementById('pricing-popup').style.display='none';"
+            style="position: absolute; top: 10px; right: 15px; font-size: 1.5rem; color: #999; cursor: pointer;">&times;</span>
+  
+      <p style="font-size: 1.5rem; color: #ff9e41; text-align: center;" class="display-6">Reveal Pricing</p>
+  
+      <form id="contact-form" style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+        <input type="tel" name="mobile" placeholder="Enter Mobile Number" required
+               style="padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem;">
+  
+        <input type="email" name="email" placeholder="Enter Email Address" required
+               style="padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem;">
+  
+        <button type="submit"
+                style="background-color: #ff9e41; color: white; padding: 10px; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+          Submit
+        </button>
+      </form>
+  
+      <div id="form-response" style="margin-top: 15px; text-align: center;"></div>
+    </div>
+  
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+  
+      const form = e.target;
+      const formData = new FormData(form);
+      const responseBox = document.getElementById("form-response");
+  
+      try {
+        const response = await fetch("https://formspree.io/f/mqaqjpow", {
+          method: "POST",
+          headers: {
+            Accept: "application/json"
+          },
+          body: formData
+        });
+  
+        if (response.ok) {
+          responseBox.textContent = "Thank you! Your info has been submitted.";
+          responseBox.style.color = "green";
+          form.reset();
+          document.getElementById('pricing-popup').style.display='none';
+          changeText();
+
+        } else {
+          responseBox.textContent = "Oops! Something went wrong.";
+          responseBox.style.color = "red";
+        }
+      } catch (error) {
+        responseBox.textContent = "Network error. Please try again.";
+        responseBox.style.color = "red";
+      }
+    });
+
+
+
+
+
+// ***************************************************************************
+
+function changeText(){
+        document.getElementById("price4").innerHTML = `
+        $1,699/Mo<br>
+        <small class="ms-1" style="text-decoration: line-through;">$1,999/Mo</small>
+      `;
+  
+      document.getElementById('price4-card').innerHTML = `
+        <a style="background-color: #ff9e41;" href="https://calendly.com/vploy-team/30min" class="btn-primary btn form-control">Let's Talk</a>
+      `;
+
+    //   //////////////////
+
+    document.getElementById("price3").innerHTML = `
+     $1,299/Mo
+            <br>  
+          <small class="ms-1" style="text-decoration: line-through;">$1,4999/Mo</small>
+    `;
+
+    document.getElementById('price3-card').innerHTML = `
+      <a style="background-color: #ff9e41;" href="https://calendly.com/vploy-team/30min" class="btn-primary btn form-control">Let's Talk</a>
+    `;
+
+    // //////////////////////////////////
+
+
+    document.getElementById("price2").innerHTML = `
+   $699/Mo
+            <br>
+          <small class="ms-1" style="text-decoration: line-through;">$899/Mo</small> `;
+
+    document.getElementById('price2-card').innerHTML = `
+      <a style="background-color: #ff9e41;" href="https://calendly.com/vploy-team/30min" class="btn-primary btn form-control">Let's Talk</a>
+    `;
+ 
+    document.getElementById("price1").innerHTML = `
+     $399/Mo <br>`;
+
+    document.getElementById('price1-card').innerHTML = `
+      <a style="background-color: #ff9e41;" href="https://calendly.com/vploy-team/30min" class="btn-primary btn form-control">Let's Talk</a>
+    `;
+
+
+    }
+
+    document.getElementById("btn-price4").addEventListener("click", function () {
+    
+        document.getElementById('pricing-popup').style.display='flex';
+    });
+
+
+    document.getElementById("btn-price3").addEventListener("click", function () {
+        document.getElementById('pricing-popup').style.display='flex';
+    
+  });
+
+
+  document.getElementById("btn-price2").addEventListener("click", function () {
+    
+    document.getElementById('pricing-popup').style.display='flex';
+  });
+
+  document.getElementById("btn-price1").addEventListener("click", function () {
+    document.getElementById('pricing-popup').style.display='flex';
+  });
+
+
+
+
+
+
+  </script>
+  
+  
+  
+
 <!-- Latest compiled JavaScript -->
 <script src="assets/js/jquery-3.6.0.min.js"></script>
 <script src="assets/js/popper.min.js"></script>
@@ -509,5 +659,11 @@ s0.parentNode.insertBefore(s1,s0);
 <script src="assets/js/carousel.js"></script>
 <script src="assets/js/counter.js"></script>
 <script src="assets/js/animation.js"></script>
+<script>
+
+ 
+
+  </script>
+  
 </body>
 </html>
