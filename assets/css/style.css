@@ -958,6 +958,7 @@ p{
 .send_message_section .send_message_box_content {
     background-color: var(--e-global-color-accent);
     width: 100%;
+    height: 100%;
     border-radius: 15px;
     padding: 105px 60px 98px;
 }
